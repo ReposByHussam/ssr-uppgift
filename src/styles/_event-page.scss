@@ -1,0 +1,263 @@
+/* THIS FILE IS FOR STYLING OF THE EVENTS-PAGE */
+
+@use 'variables' as var;
+@use 'components';
+
+/* THIS IS STYLING FOR THE HEADING PICTURE */
+
+.events {
+  background-color: #fbfbfa;
+  display: flex;
+  flex-direction: column;
+
+  &__hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    display: flex;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+.events__hero-text {
+  display: flex;
+  justify-content: center;
+  color: var.$color-btn-menu;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5em;
+}
+
+
+/* THIS IS STYLING FOR THE POPULAR EVENTS-SECTION */
+
+.events__popular {
+  display: flex;
+  flex-direction: column;
+
+  &-headline {
+    font-size: 2rem;
+    font-family: var.$font-main;
+    font-weight: bold;
+    color: #821818;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+}
+
+.events__popular-list {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.5rem;
+
+  overflow-x: auto;
+  padding-bottom: 1rem;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* STYLING FOR THE EVENT CARDS, BOTH POPULAR & UPCOMING */
+.event-card {
+  display: flex;
+  flex: 0 0 100%;
+  max-width: 350px;
+  flex-direction: column;
+  background-color: #fbfbfa;
+  border: solid grey 1px;
+  box-shadow: 0 0.2rem 0.5rem rgba(74, 35, 35, 0.8);
+  border-radius: 0.5rem;
+  overflow: hidden;
+
+  &__headline {
+    font-family: var.$font-main;
+    color: #821818;
+    text-align: center;
+    padding: 0px;
+    margin: 1rem 0 0 0;
+  }
+
+  &__image {
+    display: block;
+    width: 85%;
+    margin: 1rem auto;
+    object-fit: cover;
+    height: 12rem;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 70%;
+    margin-left: -1.25rem;
+  }
+
+  &__button {
+    width: 30%;
+    height: 2.5rem;
+    flex-shrink: 0;
+    margin-left: -0.7rem;
+    margin-top: 3rem;
+    color: white;
+    background-color: #821818;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+}
+
+.events__moreBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto 0;
+  text-align: center;
+}
+
+/* THIS IS STYLING FOR THE UPCOMING-EVENTS SECTION */
+.events__upcoming {
+  display: flex;
+  flex-direction: column;
+
+  &-headline {
+    font-size: 2rem;
+    font-family: var.$font-main;
+    font-weight: bold;
+    color: #821818;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+}
+
+.events__upcoming-list {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.5rem;
+
+  overflow-x: auto;
+  padding-bottom: 1rem;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* THIS IS THE SECTION FOR UPCOMING EVENTS */
+.happenings__section {
+  padding: 3rem 1rem;
+  background: var.$bg;
+
+  max-width: var.$container;
+  margin: 0 auto;
+}
+
+.happening__headline {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0 1.25rem;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  color: var.$accent;
+}
+
+.happenings__list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 48rem) {
+  .happenings__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+.happenings__card {
+  background: var.$surface;
+  border: 1px solid var.$border;
+  border-radius: var.$radius;
+  padding: 1.25rem 1.25rem 1.1rem;
+  position: relative;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.happenings__card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  border-radius: var.$radius 0 0 var.$radius;
+  background: var.$accent;
+  opacity: 0.9;
+}
+
+.happenings__card:hover {
+  transform: translateY(-0.15rem);
+  box-shadow: var.$shadow;
+  border-color: var.$accent-soft;
+}
+
+.happenings-card__title {
+  margin: 0 0 0.75rem;
+  padding-left: 0.25rem;
+  font-size: 1.2rem;
+  line-height: 1.35;
+  font-weight: 800;
+  color: var.$text;
+}
+
+.happenings-card__description {
+  margin: 0 0 0.35rem;
+  color: var.$muted;
+  line-height: 1.65;
+  font-weight: 600;
+}
+
+.happenings-card__description:last-of-type {
+  margin-bottom: 0.9rem;
+}
+
+.happenings-card__button {
+  width: 100%;
+  background-color: var.$accent;
+  border-color: var.$accent;
+  color: #fff;
+}
+
+.happenings-card__button:hover {
+  background-color: var.$color-btn-menu-hover;
+  border-color: var.$color-btn-menu-hover;
+}
+
+/* THIS IS BREAKPOINTS FOR TABLET AND DESKTOP */
+
+@media screen and (min-width: var.$bp-desktop) {
+
+  .events__popular-list,
+  .events__upcoming-list {
+    justify-content: center;
+    overflow-x: visible;
+    gap: 2.5rem;
+  }
+
+  .event-card {
+    flex: 1 1 320px;
+    max-width: 320px;
+  }
+
+  .events__moreBtn {
+    margin: 1rem auto 0;
+  }
+}
