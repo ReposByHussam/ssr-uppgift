@@ -1,5 +1,4 @@
 import axios from "axios";
-import e from "express";
 export const API_BASE =
   "https://plankton-app-xhkom.ondigitalocean.app/api/movies";
 
