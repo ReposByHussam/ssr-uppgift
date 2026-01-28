@@ -1,0 +1,23 @@
+<%- include ('../partials/head',{title:title}) %>
+<%- include ('../partials/header') %>
+
+<main class="main">
+    <section class="main__filmsToday">
+        <h1 class="main__filmsContainer__heading"><%= movie.title %></h1>
+
+        <article class="movieShow">
+            <% if (movie.imageUrl) { %>
+            <img src="<%= movie.imageUrl %>" class="movieShow__img" alt="Poster: <%= movie.title %>">
+            <% } %>
+
+            <div class="movieShow__intro">
+                <strong>Intro:</strong>
+                <div><%- introHtml %></div>
+            </div>
+            
+            <a href="/" class="movieShow__actions btn btn--secondary movieCard__button">Till alla filmer</a>
+        </article>
+    </section>
+</main>
+<%- include ('../partials/footer') %>
+<%- include ('../partials/end') %>

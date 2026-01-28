@@ -1,0 +1,38 @@
+<%- include('../partials/head', { title: title }) %>
+<%- include('../partials/header') %>
+
+<main class="main">
+  <section class="main__filmsToday">
+    <h1 class="main__filmsContainer__heading">Filmer</h1>
+
+    <div class="main__filmsContainer">
+      <% movies.forEach(function (m) { %>
+        <article class="card movieCard">
+          <h3 class="movieCard__title"><%= m.title %></h3>
+
+          <% if (m.intro) { %>
+            <p class="movieCard__item">
+              <strong>Beskrivning:</strong>
+              <%= m.intro %>
+            </p>
+          <% } %>
+
+          <% if (m.imageUrl) { %>
+            <img
+              src="<%= m.imageUrl %>"
+              class="movieCard__img"
+              alt="Poster: <%= m.title %>"
+            />
+          <% } %>
+
+          <a class="btn btn--secondary movieCard__button" href="/movies/<%= m.id %>">
+            Läs mer
+          </a>
+        </article>
+      <% }) %>
+    </div>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>
+<%- include('../partials/end') %>
